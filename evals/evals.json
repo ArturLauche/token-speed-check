@@ -1,0 +1,20 @@
+{
+  "skill_name": "token-speed-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "For 56de57b4-276a-4fbf-b31a-6383099883e2 check the tokens per second the LLM was running on.",
+      "expected_output": "Reports the model, run window, generated token count, generation throughput (~113.8 tok/s), end-to-end throughput (~59.8 tok/s), and per-message percentiles for the completed run. Separates later runs instead of blending them into the first run."
+    },
+    {
+      "id": 2,
+      "prompt": "How fast was the model in OpenCode session ses_eb111e836ffe8gKJUhsnq1J0oD? Break it down by turn.",
+      "expected_output": "Uses the session-only path, splits at the multi-minute gap, and reports each segment separately with generation and end-to-end tok/s."
+    },
+    {
+      "id": 3,
+      "prompt": "Was the LLM slow on that turn, or was it just waiting on tools?",
+      "expected_output": "Compares generation throughput with end-to-end throughput and explains that the gap is non-generation time such as tool execution, rather than claiming a baseline without evidence."
+    }
+  ]
+}
